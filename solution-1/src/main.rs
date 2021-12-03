@@ -11,14 +11,17 @@ fn read<R: Read>(io: R) -> Result<Vec<i64>, Error> {
 
 fn main() -> Result<(), Error> {
     let vec = read(File::open("input1")?)?;
+    let mut vec2 = vec.clone();
 
+    // remove first element of sec vector
+    vec2.remove(0);
     let mut counter = 0;
 
-    for (i, x) in vec.iter().enumerate() {
-        if x < x {
+    for (x, y) in vec.iter().zip(vec2.iter()) {
+        if y > x {
             counter += 1;
         }
-        println!("In position {} we have value {} {}", i, x, counter);
+        println!("x={}, y={}, bigger={}", x, y, counter);
     }
 
 
