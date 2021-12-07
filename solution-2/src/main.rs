@@ -17,6 +17,7 @@ fn main() -> Result<(), Error> {
 
     // Add counting logic
     // String in vector and addition in another
+    
 
     for x in vec.iter() {
         x.split_whitespace();
